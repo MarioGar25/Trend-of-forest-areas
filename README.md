@@ -114,7 +114,6 @@ Fit 3 models for each distint climate:
     1. Importance.
     2. Partial Dependence Plots.
 
-4. Demostration with new data.
 
 ## Results
 
