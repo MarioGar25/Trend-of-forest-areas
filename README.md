@@ -1,6 +1,6 @@
 # Trend of forest areas in Spain and the Balearic Islands
 
-!["forest"](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcOkaZks8L6vrZmxKO5ZuiuF4Ct1mfiBJ-3Q&usqp=CAU)
+!["forest"](https://www.barcelo.com/guia-turismo/wp-content/uploads/2019/04/sierra-guadarrama-1.jpg)
 
 ## Introduction
 
