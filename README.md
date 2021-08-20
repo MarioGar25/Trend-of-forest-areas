@@ -26,13 +26,7 @@ Generate a Machine Learning model capable of predicting the growth and developme
     
     pointid: Input ID
 
-    EU_conv_tr: Euclidean distance of the input to conventional railroad tracks. One unit represents 250 m.
-
-    'EU_hv_tr': Euclidean distance of the input to high-speed railroad tracks. One unit represents 250 m.
-
-    'EU_mj_road': Euclidean distance of the input to highways, freeways and national roads.  One unit represents 250 m.
-
-    'EU_sec_roa': Euclidean distance of the input to conventional roads.  One unit represents 250 m.
+    'EU_road': Euclidean distance of the input to roads.  One unit represents 250 m.
 
     'EU_sett': Euclidean distance of the input to poblations.  One unit represents 250 m.
 
@@ -43,8 +37,6 @@ Generate a Machine Learning model capable of predicting the growth and developme
     'TFCCARB': Fraction of tree-covered capacity. In percentage.
 
     'FCC_POND': Fraction of total covered capacity. Weighting.
-
-    'TIPO_BOSQU': Forests type.
 
     'NOM_FORARB': Type of tree formation.
 
@@ -98,29 +90,34 @@ The process consists of four steps:
 1. Cleaning:
 In this process, the DataSet is checked and the following cleaning methods are performed:
     1. Null values : Using techniques such as zero fill, and `KNNIMputer`.
-    2. Using techniques such as substituting for the `median`.
-    3. Category Encoging, like `TargetEncoder` and `Get Dummies`.
+    2. Using techniques such as `SimpleImputer`.
+    3. Category Encoging, like `TargetEncoder`.
     4. Drop repeat data.
 
 2. Supervised Learning:
-Fit 3 models for each distint climate:
-    1. `RandomForestClassifier`
-    2. `RandomForestClassifier` with hiperparameters selected by `RandomizedSearchCV`.
-    3. `GradientBoostingClassifier`.    
-    
-    Select model about accuracy scores.
+Fit 4 models for each distint climate:
+    - Bagging
+        1. `RandomForestClassifier`.
+        2. `ExtraTreesClasifier`.
+    - Boosting
+        3. `LightGradientBoostingMachine`.
+        4. `Cat>boost`
 
-3. Aalisys:
-    1. Importance.
-    2. Partial Dependence Plots.
+Select best model according to accuracy score.
 
+Tune select model
+
+3. Analysis
+Features Importances
+Partial Dependence Plots
+Multilabel ROC Curve
 
 ## Results
 
-The selected model, and therefore the one with the best accuracy scores, is the `RandomForestClassifier`.
+The selected model, and therefore the one with the best accuracy scores, is the `ExtratreesClasifier`.
 
 
-![Accuracy_Scores](output\Accuray_Scores.png)
+![Accuracy_Scores](output\select_model.jpg)
 
 
 ## Libraries
